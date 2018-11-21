@@ -48,7 +48,7 @@ if $DISPLAY != ''
         let s:paste['+'] = 'xsel -o -b'
         let s:copy['*'] = 'xsel --nodetach -i -p'
         let s:paste['*'] = 'xsel -o -p'
-    endif 
+    endif
 elseif executable('tmux') && $TMUX != ''
     let s:copy['+']= 'tmux load-buffer -'
     let s:paste['+']= 'tmux show-buffer'
@@ -87,7 +87,7 @@ function! s:clipboard.set(lines, regtype, reg)
     if s:copy['*'] != s:copy['+']
         call s:clipboard.set(a:lines,a:regtype,'*')
     end
-    return 0;
+    return 0
   end
   if s:cache_enabled == 0
       call s:try_cmd(s:copy[a:reg], a:lines)
